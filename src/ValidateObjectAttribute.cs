@@ -11,7 +11,7 @@ namespace Jmw.ComponentModel.DataAnnotations
     /// Attribute forcing to validate property's object.
     /// </summary>
     /// <remarks>
-    /// Copy /paste from http://www.technofattie.com/2011/10/05/recursive-validation-using-dataannotations.html. Thanks Josh !!!
+    /// Copy /paste from http://www.technofattie.com/2011/10/05/recursive-validation-using-dataannotations.html. Thanks Josh !!!.
     /// </remarks>
     public class ValidateObjectAttribute : ValidationAttribute
     {

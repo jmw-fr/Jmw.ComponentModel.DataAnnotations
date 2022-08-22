@@ -12,7 +12,7 @@ namespace Jmw.ComponentModel.DataAnnotations
     /// Object validation extension.
     /// </summary>
     /// <remarks>
-    /// Copy /paste from http://www.technofattie.com/2011/10/05/recursive-validation-using-dataannotations.html. Thanks Josh !!!
+    /// Copy /paste from http://www.technofattie.com/2011/10/05/recursive-validation-using-dataannotations.html. Thanks Josh !!!.
     /// </remarks>
     public static class ValidateModelHelpers
     {
