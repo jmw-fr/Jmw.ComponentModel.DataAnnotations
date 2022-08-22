@@ -5,6 +5,7 @@
 namespace Jmw.ComponentModel.DataAnnotations
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
@@ -25,12 +26,28 @@ namespace Jmw.ComponentModel.DataAnnotations
         public static void ValidateModel<T>(this T entity)
             where T : class
         {
+            ValidateModel(entity, null);
+        }
+
+        /// <summary>
+        /// Validate an object properties with <see cref="Validator" />.
+        /// </summary>
+        /// <typeparam name="T">Object type to validate.</typeparam>
+        /// <param name="entity">Object to validate.</param>
+        /// <param name="items">
+        /// A dictionary of key/value pairs to make available to the service consumers. This parameter is optional.
+        /// </param>
+        /// <exception cref="ValidationException"><paramref name="entity"/> validation failed.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="entity"/> is <c>null</c>.</exception>
+        public static void ValidateModel<T>(this T entity, IDictionary<object, object> items)
+            where T : class
+        {
             if (entity is null)
             {
                 throw new ArgumentNullException(nameof(entity));
             }
 
-            var validationContext = new ValidationContext(entity);
+            var validationContext = new ValidationContext(entity, items);
             Validator.ValidateObject(
                 entity,
                 validationContext,
